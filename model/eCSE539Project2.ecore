@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eCSE539Project" nsURI="http://www.example.org/eCSE539Project"
+    nsPrefix="eCSE539Project">
+  <eClassifiers xsi:type="ecore:EClass" name="APMHAL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="astronauts" upperBound="-1"
+        eType="#//Astronaut"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" eType="#//deviceList"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Astronaut">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" eType="#//deviceList"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BiomarkerType" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorType" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponderType" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Biomarker">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="biomarkerType" unique="false"
+        lowerBound="1" eType="#//BiomarkerType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
+        eType="#//Sensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responders" upperBound="-1"
+        eType="#//Responder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Responder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responderType" lowerBound="1"
+        eType="#//ResponderType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="respondsTo" upperBound="-1"
+        eType="#//Biomarker"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensorType" lowerBound="1"
+        eType="#//SensorType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="senses" upperBound="-1"
+        eType="#//Biomarker"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="deviceList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
+        eType="#//Sensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responders" upperBound="-1"
+        eType="#//Responder"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="biomarkers" upperBound="-1"
+        eType="#//Biomarker"/>
+  </eClassifiers>
+</ecore:EPackage>
