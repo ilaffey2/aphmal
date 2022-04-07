@@ -1,0 +1,44 @@
+@namespace(uri="apmhal", prefix="apmhal")
+package eCSE539Project;
+
+class APMHAL {
+	val NamedElement[*] elements;
+	attr QualityType[*] qualities;
+}
+
+class Astronaut extends NamedElement {
+	ref Device[*] devices;
+	ref Biomarker[*] biomarkers;
+}
+
+class Biomarker extends NamedElement {
+	ref Sensor[*] sensors;
+	ref Responder[*] responders;
+}
+
+class Responder extends Device {
+}
+
+class Sensor extends Device {
+}
+
+abstract class Device extends NamedElement {
+	ref Biomarker[*] biomarkers;
+	val Quality[+] qualities;
+}
+
+abstract interface NamedElement {
+	attr String name;
+}
+
+class Quality {
+	attr int[1] value;
+	attr QualityType[1] qualityType;
+}
+
+enum QualityType {
+	weight;
+	height;
+	accuracy;
+}
+

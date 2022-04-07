@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eCSE539Project" nsURI="apmhal" nsPrefix="apmhal">
+  <eClassifiers xsi:type="ecore:EClass" name="APMHAL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//NamedElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualities" upperBound="-1"
+        eType="#//QualityType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Astronaut" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//Device"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="biomarkers" upperBound="-1"
+        eType="#//Biomarker"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Biomarker" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
+        eType="#//Sensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responders" upperBound="-1"
+        eType="#//Responder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Responder" eSuperTypes="#//Device"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Device"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Device" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="biomarkers" upperBound="-1"
+        eType="#//Biomarker"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualities" lowerBound="1"
+        upperBound="-1" eType="#//Quality" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Quality">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualityType" lowerBound="1"
+        eType="#//QualityType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QualityType">
+    <eLiterals name="weight"/>
+    <eLiterals name="height" value="1"/>
+    <eLiterals name="accuracy" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>
