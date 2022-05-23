@@ -1,0 +1,25 @@
+?nsuri: apmhal
+APMHAL:
+ Astronaut:
+  name: Alex
+  biomarkers: b1
+  quality: height
+  
+ Biomarker:
+  name: b1
+  responders: r1
+  sensors: s1
+  
+ Sensor:
+  name: s1
+  qualities:
+   Quality:
+    value: 2
+    qualitytype: height
+    
+ Responder:
+  name: r1
+  qualities:
+   Quality:
+    value: 6
+    qualitytype: testlive

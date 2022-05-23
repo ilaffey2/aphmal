@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:apmhal="apmhal">
+  <apmhal:Astronaut name="Jeffery">
+    <devices xsi:type="apmhal:Sensor" name="s2_JEFFERY">
+      <biomarkers href="example1.flexmi#//@elements.2"/>
+      <qualities value="4"/>
+      <qualities value="3" qualityType="height"/>
+    </devices>
+    <devices xsi:type="apmhal:Responder" name="r1_JEFFERY">
+      <qualities value="6"/>
+      <qualities value="1" qualityType="height"/>
+    </devices>
+  </apmhal:Astronaut>
+  <apmhal:Astronaut name="Ian" quality="height">
+    <devices xsi:type="apmhal:Sensor" name="s1_IAN">
+      <biomarkers href="example1.flexmi#//@elements.2"/>
+      <qualities value="5"/>
+      <qualities value="1" qualityType="height"/>
+    </devices>
+    <devices xsi:type="apmhal:Responder" name="r1_IAN">
+      <qualities value="6"/>
+      <qualities value="1" qualityType="height"/>
+    </devices>
+  </apmhal:Astronaut>
+</xmi:XMI>

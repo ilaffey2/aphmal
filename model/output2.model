@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:apmhal="apmhal">
+  <apmhal:Astronaut name="Ian">
+    <devices xsi:type="apmhal:Sensor" name="s1_IAN">
+      <biomarkers href="example2.flexmi#//@elements.2"/>
+      <qualities value="1"/>
+      <qualities value="5" qualityType="height"/>
+    </devices>
+    <devices xsi:type="apmhal:Sensor" name="s3_IAN">
+      <biomarkers href="example2.flexmi#//@elements.3"/>
+      <qualities value="1"/>
+      <qualities value="5" qualityType="height"/>
+    </devices>
+    <devices xsi:type="apmhal:Responder" name="r1_IAN">
+      <biomarkers href="example2.flexmi#//@elements.2"/>
+      <biomarkers href="example2.flexmi#//@elements.3"/>
+      <qualities value="6"/>
+      <qualities value="10" qualityType="height"/>
+    </devices>
+  </apmhal:Astronaut>
+  <apmhal:Astronaut name="Alex" quality="height">
+    <devices xsi:type="apmhal:Sensor" name="s2_ALEX">
+      <biomarkers href="example2.flexmi#//@elements.2"/>
+      <biomarkers href="example2.flexmi#//@elements.3"/>
+      <qualities value="10"/>
+      <qualities value="5" qualityType="height"/>
+    </devices>
+    <devices xsi:type="apmhal:Responder" name="r2_ALEX">
+      <biomarkers href="example2.flexmi#//@elements.2"/>
+      <biomarkers href="example2.flexmi#//@elements.3"/>
+      <qualities value="7"/>
+      <qualities value="1" qualityType="height"/>
+    </devices>
+  </apmhal:Astronaut>
+</xmi:XMI>

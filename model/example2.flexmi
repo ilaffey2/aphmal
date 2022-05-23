@@ -1,0 +1,84 @@
+?nsuri: apmhal
+
+APMHAL: 
+
+ Astronaut:
+  name: Ian
+  biomarkers: b1, b2
+  quality: weight
+  
+ Astronaut: 
+  name: Alex
+  biomarkers: b1, b2
+  quality: height
+  
+ Biomarker:
+  name: b1
+  sensors: s1, s2, 
+  responders: r1, r2
+  
+ Biomarker:
+  name: b2
+  sensors: s2, s3
+  responders: r1, r2
+ 
+ Responder:
+  name: r1
+  biomarkers:
+   b1, b2
+  qualities:
+   Quality:
+    value: 6
+    qualitytype: weight
+   Quality:
+    value: 10
+    qualityType: height
+
+ Responder:
+  name: r2
+  biomarkers:
+   b1, b2
+  qualities:
+   Quality:
+    value: 7
+    qualitytype: weight
+   Quality:
+    height: 1
+    qualityType: height
+  
+ Sensor: 
+   name: s1
+   biomarkers:
+    b1
+   qualities:
+    Quality:
+     value: 1
+     qualitytype: weight
+    Quality:
+     value: 5
+     qualitytype: height
+     
+ Sensor: 
+   name: s2
+   biomarkers:
+    b1, b2
+   qualities:
+    Quality:
+     value: 10
+     qualitytype: weight
+    Quality:
+     value: 5
+     qualitytype: height
+     
+ Sensor:
+  name: s3
+  biomarkers:
+   b2
+  qualtiies:
+   Quality:
+    value: 1
+    qualitytype: weight
+   Quality:
+    value: 5
+    qualitytype: height
+  

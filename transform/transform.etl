@@ -1,0 +1,67 @@
+pre{
+
+}
+	
+
+/*
+@lazy
+rule apmhal
+ transform s : input!APMHAL
+ to t : output!APMHAL {
+ 	t.elements = s.elements;
+// 	System.out.println("Hi");
+ 	
+// 	sampleTool.singleElement(t.elements, 1).eClass.println();
+ } 
+
+
+rule name
+ transform s :input!NamedElement
+ to t : output!NamedElement{
+ t.name = s.name;
+//  System.out.println("ANYWHERE");
+ }
+ 
+*/
+rule astronaut
+ transform s :input!Astronaut
+ to t : output!Astronaut{
+// extends name{
+// System.out.println("THERE");
+var sampleTool = new Native("org.eclipse.epsilon.examples.tools.SampleTool"); 
+ t.quality = s.quality;
+ t.name = s.name;
+ var biomarkers = s.biomarkers;
+ 
+ 
+ 	sampleTool.name = t.quality.toString();
+ 	sampleTool.sayHello().println;
+ var mappedSensors= 
+ 	sampleTool.generateSensorListMapping(biomarkers,"Sensor", t.quality.toString(),t.name.toString());
+ var mappedResponders=
+    sampleTool.generateSensorListMapping(biomarkers,"Responder", t.quality.toString(),t.name.toString());
+ var mappedTesters=
+    sampleTool.generateSensorListMapping(biomarkers, "Tester", t.quality.toString(), t.name.toString());
+ 
+ 
+ var devices= sampleTool.combineLists(mappedSensors,mappedResponders);
+ var devices2= sampleTool.combineLists(devices, mappedTesters);
+ 
+ t.devices = devices2;
+
+
+ 	System.out.flush();
+// mappedSensors.println;
+// t.devices.addAll(mappedSensors);
+// t.devices.println();
+ }
+ 
+
+/*
+rule biomarker
+  transform s : input!Biomarker
+  to t : output!Biomarker{
+  t.name = s.name;
+  t.sensors = s.sensors;
+  t.responders = s.responders;
+  }

@@ -3,23 +3,22 @@ package eCSE539Project;
 
 class APMHAL {
 	val NamedElement[*] elements;
-	attr QualityType[*] qualities;
+}
+
+abstract interface NamedElement {
+	!unique attr String name;
 }
 
 class Astronaut extends NamedElement {
-	ref Device[*] devices;
+	val Device[*] devices;
 	ref Biomarker[*] biomarkers;
+	attr QualityType[1] quality;
 }
 
 class Biomarker extends NamedElement {
-	ref Sensor[*] sensors;
-	ref Responder[*] responders;
-}
-
-class Responder extends Device {
-}
-
-class Sensor extends Device {
+	ref Sensor[+] sensors;
+	ref Responder[+] responders;
+	ref Tester[*] testers;
 }
 
 abstract class Device extends NamedElement {
@@ -27,8 +26,16 @@ abstract class Device extends NamedElement {
 	val Quality[+] qualities;
 }
 
-abstract interface NamedElement {
-	attr String name;
+class Responder extends Device {
+//Responder specific information would go here
+}
+
+class Sensor extends Device {
+//Sensor specific information would go here
+}
+
+class Tester extends Device {
+	//Methods are outside scope of class
 }
 
 class Quality {
@@ -37,8 +44,9 @@ class Quality {
 }
 
 enum QualityType {
-	weight;
-	height;
-	accuracy;
+	weight = 0;
+	height = 1;
+	accuracy = 2;
+	testlive = 3;
 }
 
