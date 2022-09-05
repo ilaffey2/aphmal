@@ -5,7 +5,7 @@ This was created with help from Gunter Mussbacher as a semester long project for
 The following is a description of the files/file structure.
 **For all other info see ECSE539ProjectReport.pdf** (Best to start by reading that)
 
-##Files
+## Files
 `metamodel/` contains metamodel related files (ecore included for convenience, not necessary)
 
 `model/` contains input & output model files. `*.flexmi` files are input. `*.model` files are output. `example*.flexmi` files are "Sample input files". `name*.flexmi` are additional input files, used for testing, included for reference. Output files should be deleted and re-created to test transformation but are included for reference.
